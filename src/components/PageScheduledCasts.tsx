@@ -19,7 +19,7 @@ export default function ScheduledCastsPage() {
   const updateCast = useMutation(api.casts.updateCast);
   const { uploadImage, isUploading } = useImageUpload();
 
-  const [deletingId, setDeletingId] = useState<Id<"scheduledCasts"> | null>(
+  const [cancelingId, setDeletingId] = useState<Id<"scheduledCasts"> | null>(
     null
   );
   const [editingId, setEditingId] = useState<Id<"scheduledCasts"> | null>(null);
@@ -102,8 +102,8 @@ export default function ScheduledCastsPage() {
     }
   };
 
-  const handleDelete = async (castId: Id<"scheduledCasts">) => {
-    if (!confirm("Are you sure you want to delete this scheduled cast?")) {
+  const handleCancel = async (castId: Id<"scheduledCasts">) => {
+    if (!confirm("Are you sure you want to cancel this scheduled cast?")) {
       return;
     }
 
@@ -172,8 +172,8 @@ export default function ScheduledCastsPage() {
                         <CastCard
                           cast={cast}
                           onEdit={() => handleEdit(cast._id)}
-                          onDelete={() => handleDelete(cast._id)}
-                          isDeleting={deletingId === cast._id}
+                          onCancel={() => handleCancel(cast._id)}
+                          isCanceling={cancelingId === cast._id}
                         />
                       )}
                     </div>
@@ -213,7 +213,7 @@ export default function ScheduledCastsPage() {
                       <CastCard
                         key={cast._id}
                         cast={cast}
-                        isDeleting={deletingId === cast._id}
+                        isCanceling={cancelingId === cast._id}
                       />
                     ))}
                   </div>

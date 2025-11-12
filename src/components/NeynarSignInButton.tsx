@@ -104,7 +104,7 @@ export function NeynarSignInButton() {
   const getButton = useCallback(() => {
     return (
       <div
-        className="neynar_signin mt-6"
+        className="neynar_signin mt-6 bg-primary border border-primary"
         data-client_id={client_id}
         data-neynar_login_url={neynar_login_url}
         data-success-callback="onSignInSuccess"

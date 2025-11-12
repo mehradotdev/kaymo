@@ -11,7 +11,7 @@ export const Footer: React.FC<FooterProps> = ({ activeTab, setActiveTab }) => (
     <div className="flex justify-around items-center h-14">
       <button
         onClick={() => setActiveTab(Tab.Home)}
-        className={`flex flex-col items-center justify-center w-full h-full ${
+        className={`flex flex-col items-center justify-center w-full h-full hover:cursor-pointer ${
           activeTab === Tab.Home ? 'text-primary dark:text-primary-light' : 'text-gray-500 dark:text-gray-400'
         }`}
       >
@@ -20,7 +20,7 @@ export const Footer: React.FC<FooterProps> = ({ activeTab, setActiveTab }) => (
       </button>
       <button
         onClick={() => setActiveTab(Tab.Schedules)}
-        className={`flex flex-col items-center justify-center w-full h-full ${
+        className={`flex flex-col items-center justify-center w-full h-full hover:cursor-pointer ${
           activeTab === Tab.Schedules ? 'text-primary dark:text-primary-light' : 'text-gray-500 dark:text-gray-400'
         }`}
       >

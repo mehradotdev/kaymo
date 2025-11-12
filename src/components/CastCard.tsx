@@ -31,11 +31,11 @@ interface CastCardProps {
     errorMessage?: string;
   };
   onEdit?: () => void;
-  onDelete?: () => void;
-  isDeleting?: boolean;
+  onCancel?: () => void;
+  isCanceling?: boolean;
 }
 
-export default function CastCard({ cast, onEdit, onDelete, isDeleting }: CastCardProps) {
+export default function CastCard({ cast, onEdit, onCancel, isCanceling }: CastCardProps) {
   return (
     <div className="bg-white rounded-lg shadow-md p-6">
       <div className="flex justify-between items-start mb-4">
@@ -65,23 +65,23 @@ export default function CastCard({ cast, onEdit, onDelete, isDeleting }: CastCar
         </div>
       )}
 
-      {cast.status === "pending" && (onEdit || onDelete) && (
+      {cast.status === "pending" && (onEdit || onCancel) && (
         <div className="flex gap-2">
           {onEdit && (
             <button
               onClick={onEdit}
-              className="px-4 py-2 rounded-lg bg-blue-500 text-white font-semibold hover:bg-blue-600 transition-colors"
+              className="px-4 py-2 rounded-lg bg-blue-500 text-white font-semibold hover:bg-blue-600 transition-colors hover:cursor-pointer"
             >
               Edit
             </button>
           )}
-          {onDelete && (
+          {onCancel && (
             <button
-              onClick={onDelete}
-              disabled={isDeleting}
-              className="px-4 py-2 rounded-lg bg-red-500 text-white font-semibold hover:bg-red-600 transition-colors disabled:opacity-50 disabled:cursor-not-allowed"
+              onClick={onCancel}
+              disabled={isCanceling}
+              className="px-4 py-2 rounded-lg bg-red-500 text-white font-semibold hover:bg-red-600 transition-colors hover:cursor-pointer disabled:opacity-50 disabled:cursor-not-allowed"
             >
-              {isDeleting ? "Deleting..." : "Delete"}
+              {isCanceling ? "Canceling..." : "Cancel"}
             </button>
           )}
         </div>
