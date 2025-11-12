@@ -14,13 +14,13 @@
     "@farcaster/miniapp-sdk": "^0.2.1",
     "@neynar/nodejs-sdk": "^3.84.0",
     "convex": "^1.28.2",
+    "date-fns": "^4.1.0",
     "lucide-react": "^0.553.0",
     "mipd": "^0.0.7",
     "next": "16.0.1",
     "react": "19.2.0",
     "react-dom": "19.2.0",
-    "react-toastify": "^11.0.5",
-    "zustand": "^5.0.8"
+    "sonner": "^2.0.7"
   },
   "devDependencies": {
     "@tailwindcss/postcss": "^4",

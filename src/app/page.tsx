@@ -1,14 +1,15 @@
 "use client";
 
-import Signin from "../components/Screens/Signin";
-import Home from "../components/Screens/Home";
+import HomePage from "~/components/HomePage";
+import Navbar from "~/components/Navbar";
+import BottomNav from "~/components/BottomNav";
 
 export default function Index() {
-
   return (
     <>
-      <Signin />
-      <Home />
+      <Navbar />
+      <HomePage />
+      <BottomNav />
     </>
   );
 }

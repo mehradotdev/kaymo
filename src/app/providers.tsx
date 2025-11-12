@@ -1,7 +1,8 @@
 "use client";
 
 import React from "react";
-import { ConvexProvider, ConvexReactClient } from "convex/react";
+import { ConvexAuthProvider } from "@convex-dev/auth/react";
+import { ConvexReactClient } from "convex/react";
 import { type Context } from "@farcaster/miniapp-sdk";
 import { useMiniApp } from "~/hooks/useMiniApp";
 
@@ -21,10 +22,10 @@ export function Provider({ children }: { children: React.ReactNode }) {
   }
 
   return (
-    <ConvexProvider client={convex}>
+    <ConvexAuthProvider client={convex}>
       <FrameContext.Provider value={{ isSDKLoaded, context }}>
         {children}
       </FrameContext.Provider>
-    </ConvexProvider>
+    </ConvexAuthProvider>
   );
-} 
+}
