@@ -9,6 +9,8 @@
     "lint": "eslint"
   },
   "dependencies": {
+    "@auth/core": "0.37.0",
+    "@convex-dev/auth": "^0.0.90",
     "@farcaster/miniapp-sdk": "^0.2.1",
     "@neynar/nodejs-sdk": "^3.84.0",
     "convex": "^1.28.2",
