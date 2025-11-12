@@ -3,15 +3,17 @@ import { Header } from "~/components/Header";
 import { Footer } from "~/components/Footer";
 import { useMiniApp } from "~/hooks/useMiniApp";
 import { useState } from "react";
-import HomePage from "~/components/HomePage";
+import HomePage from "~/components/PageHome";
+import ScheduledCastsPage from "~/components/PageScheduledCasts";
+// import SettingsPage from "~/components/PageSettings";
 import { Authenticated, Unauthenticated } from "convex/react";
 import { NeynarSignInButton } from "~/components/NeynarSignInButton";
 
 // --- Types ---
 export enum Tab {
   Home = "home",
-  Actions = "actions",
-  Context = "context",
+  Schedules = "schedules",
+  // Settings = "settings",
 }
 
 export default function Index() {
@@ -52,8 +54,8 @@ export default function Index() {
         <div className="container py-2 pb-20">
           {/* Tab content rendering */}
           {activeTab === Tab.Home && <HomePage />}
-          {activeTab === Tab.Actions && <HomePage />}
-          {activeTab === Tab.Context && <HomePage />}
+          {activeTab === Tab.Schedules && <ScheduledCastsPage />}
+          {/* {activeTab === Tab.Settings && <SettingsPage />} */}
 
           {/* Footer with navigation */}
           <Footer activeTab={activeTab as Tab} setActiveTab={setActiveTab} />

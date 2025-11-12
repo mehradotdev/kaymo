@@ -245,7 +245,7 @@ export default function CastForm({
         <button
           type="submit"
           disabled={isSubmitting || !content.trim() || !scheduledDate || !scheduledTime}
-          className="flex-1 px-6 py-3 rounded-lg bg-primary text-white font-semibold hover:bg-primary-hover transition-colors disabled:opacity-50 disabled:cursor-not-allowed"
+          className="flex-1 px-6 py-3 rounded-lg bg-primary text-primary font-semibold hover:bg-primary-hover hover:cursor-pointer transition-colors disabled:opacity-50 disabled:cursor-not-allowed"
         >
           {isSubmitting ? "Submitting..." : submitLabel}
         </button>
@@ -254,7 +254,7 @@ export default function CastForm({
             type="button"
             onClick={onCancel}
             disabled={isSubmitting}
-            className="px-6 py-3 rounded-lg bg-gray-500 text-white font-semibold hover:bg-gray-600 transition-colors disabled:opacity-50 disabled:cursor-not-allowed"
+            className="px-6 py-3 rounded-lg bg-gray-500 text-primary font-semibold hover:bg-gray-600 hover:cursor-pointer transition-colors disabled:opacity-50 disabled:cursor-not-allowed"
           >
             Cancel
           </button>
