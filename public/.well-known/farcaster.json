@@ -1,0 +1,18 @@
+{
+    "accountAssociation": {
+      "header": "eyJmaWQiOjU0OTEzOSwidHlwZSI6ImN1c3RvZHkiLCJrZXkiOiIweDIxRDgyMkQ4QkUwNERGRTYwN0FmMTY3MzE5OTZBYzBGZmI5M0QxY2EifQ",
+      "payload": "eyJkb21haW4iOiJkZW1vLm5leW5hci5jb20ifQ",
+      "signature": ""
+    },
+    "miniapp": {
+      "name": "Kaymo",
+      "version": "1",
+      "iconUrl": "https://kaymo.mehra.dev/logos/neynar.svg",
+      "homeUrl": "https://kaymo.mehra.dev",
+      "imageUrl": "https://kaymo.mehra.dev/logos/powered-by-neynar.png",
+      "buttonTitle": "Launch Kaymo",
+      "splashImageUrl": "https://kaymo.mehra.dev/logos/powered-by-neynar.png",
+      "splashBackgroundColor": "#000000",
+      "webhookUrl": "https://api.neynar.com/f/app/a1092b41-629f-45e0-b196-b3ff3a8f193f/event"
+    }
+  }
