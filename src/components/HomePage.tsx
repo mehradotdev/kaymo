@@ -1,7 +1,6 @@
 import { useState } from "react";
-import { Authenticated, Unauthenticated, useMutation, useQuery } from "convex/react";
+import { useMutation, useQuery } from "convex/react";
 import { api } from "../../convex/_generated/api";
-import { NeynarSignInButton } from "~/components/NeynarSignInButton";
 import { toast } from "sonner";
 import CastForm from "~/components/CastForm";
 import { useImageUpload } from "~/hooks/useImageUpload";
@@ -34,7 +33,10 @@ export default function HomePage() {
         imageUrl = await uploadImage(data.imageFile);
       }
 
-      const { timestamp, error } = validateScheduledTime(data.scheduledDate, data.scheduledTime);
+      const { timestamp, error } = validateScheduledTime(
+        data.scheduledDate,
+        data.scheduledTime
+      );
       if (error) {
         toast.error(error);
         return;
@@ -49,45 +51,43 @@ export default function HomePage() {
 
       toast.success("Cast scheduled successfully!");
     } catch (error) {
-      toast.error(error instanceof Error ? error.message : "Failed to schedule cast");
+      toast.error(
+        error instanceof Error ? error.message : "Failed to schedule cast"
+      );
     } finally {
       setIsSubmitting(false);
     }
   };
 
   return (
-    <div className="max-w-2xl mx-auto p-4 md:p-8">
-      <Unauthenticated>
-        <div className="flex flex-col items-center justify-center min-h-[calc(100vh-200px)] text-center">
-          <h1 className="text-4xl font-bold text-primary mb-4">Welcome to Kaymo</h1>
-          <p className="text-lg text-gray-600 mb-8">
-            Schedule your Farcaster posts in advance
+    <div className="max-w-2xl mx-auto p-4 md:p-8 pt-0">
+      {!profile ? (
+        <div className="bg-white rounded-lg shadow-md p-6 text-center">
+          <h2 className="text-2xl font-bold text-primary mb-4">
+            Complete Your Profile
+          </h2>
+          <p className="text-gray-600 mb-6">
+            Please set up your Farcaster profile in Settings before scheduling
+            casts.
           </p>
-          <NeynarSignInButton />
+          <a
+            href="/settings"
+            className="inline-block px-6 py-3 rounded-lg bg-primary text-white font-semibold hover:bg-primary-hover transition-colors"
+          >
+            Go to Settings
+          </a>
         </div>
-      </Unauthenticated>
-
-      <Authenticated>
-        {!profile ? (
-          <div className="bg-white rounded-lg shadow-md p-6 text-center">
-            <h2 className="text-2xl font-bold text-primary mb-4">Complete Your Profile</h2>
-            <p className="text-gray-600 mb-6">
-              Please set up your Farcaster profile in Settings before scheduling casts.
-            </p>
-            <a
-              href="/settings"
-              className="inline-block px-6 py-3 rounded-lg bg-primary text-white font-semibold hover:bg-primary-hover transition-colors"
-            >
-              Go to Settings
-            </a>
-          </div>
-        ) : (
-          <div className="bg-white rounded-lg shadow-md p-6">
-            <h2 className="text-2xl font-bold text-primary mb-6">Schedule a Cast</h2>
-            <CastForm onSubmit={handleSchedule} isSubmitting={isSubmitting || isUploading} />
-          </div>
-        )}
-      </Authenticated>
+      ) : (
+        <div className="bg-white rounded-lg shadow-md p-4 pt-0">
+          <h2 className="text-2xl font-bold text-primary mb-6">
+            Schedule a Cast
+          </h2>
+          <CastForm
+            onSubmit={handleSchedule}
+            isSubmitting={isSubmitting || isUploading}
+          />
+        </div>
+      )}
     </div>
   );
 }
